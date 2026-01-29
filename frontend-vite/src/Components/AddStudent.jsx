@@ -138,7 +138,7 @@ export default function AddStudent() {
                 id="date"
                 label="Date of birth"
                 type="date"
-                defaultValue="1998-04-02"
+                defaultValue="0000-00-00"
                 className={classes.textField}
                 InputLabelProps={{
                   shrink: true
