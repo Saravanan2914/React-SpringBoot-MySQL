@@ -3,12 +3,12 @@
 
 Hey there! This app is an example application for anyone looking for a web app linking the backend capabilities of Spring Boot (with Hibernate) to excellent frontend offered by React. 
 
-![Application Home page](https://cdn-images-1.medium.com/max/1000/1*H4KTKqkilycIb1ebhvN85w.png)
+![Application Home page]()
 
 
-![List of all data in our React app](https://cdn-images-1.medium.com/max/1000/1*h8A68kGQpM6QoQYOCqux6g.png)
+![List of all data in our React app]()
 
-If you would like to follow on the tutorial for the app you can visit the article on medium: [How to build and deploy React app with Spring Boot and MySQL server](https://medium.com/@mukundmadhav/build-and-deploy-react-app-with-spring-boot-and-mysql-6f888eb0c600).
+If you would like to follow on the tutorial for the app you can visit the article on medium: [How to build and deploy React app with Spring Boot and MySQL server).
 
 ## The purpose of the webapp
 
@@ -34,6 +34,6 @@ $ java -jar target/springboot-0.0.1-SNAPSHOT.jar
 
 I hope this app gives some insight on how to compile the backend and the frontend into a single executable file making deployment a breeze. 
 
-If you have any feedback or suggestion, let's connect on LinkedIn: [Mukund Madhav](https://www.linkedin.com/in/mukundmadhav02/) or on my website at [mukundmadhav.com](https://mukundmadhav.com)
+If you have any feedback or suggestion, let's connect on LinkedIn
 
 Happy coding 😃
