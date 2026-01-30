@@ -1,4 +1,7 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "azureResourceGroups.enableOutputTimestamps": false,
+    "azureResourceGroups.autoOpenActivityPanel": false,
+    "azureRepos.autoFetch.enabled": false
 }
