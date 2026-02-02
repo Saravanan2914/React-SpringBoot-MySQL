@@ -3,12 +3,14 @@ import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import GroupIcon from "@material-ui/icons/Group";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import AuthService from "../services/auth.service";
+import axios from "axios";
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -37,7 +39,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function AddStudent() {
   const classes = useStyles();
-
+  const history = useHistory();
 
   const [selectedDate, setSelectedDate] = React.useState(
     new Date("1998-04-02T21:11:54")
@@ -53,34 +55,35 @@ export default function AddStudent() {
 
   const [message, setMessage] = React.useState("Nothing saved in the session");
 
-  async function sampleFunc(toInput) {
-    const response = await fetch("/api/student", {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-      mode: "cors", // no-cors, *cors, same-origin
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin", // include, *same-origin, omit
-      headers: {
-        "Content-Type": "application/json"
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      redirect: "follow", // manual, *follow, error
-      referrerPolicy: "no-referrer", // no-referrer, *client
-      body: JSON.stringify(toInput) // body data type must match "Content-Type" header
-    });
-    let body = await response.json();
-    console.log(body.id);
-    setMessage(body.id ? "Data sucessfully updated" : "Data updation failed");
+  const logout = () => {
+    AuthService.logout();
+    history.push("/");
   }
 
-  const handleSubmit = variables => {
+  async function sampleFunc(toInput) {
+    try {
+      const response = await axios.post("/api/student", toInput, {
+        headers: AuthService.authHeader()
+      });
+      console.log(response.data.id);
+      setMessage(response.data.id ? "Data successfully updated" : "Data updation failed");
+    } catch (error) {
+      if (error.response && error.response.status === 403) {
+        setMessage("Unauthorized!");
+      } else {
+        setMessage("Error saving data");
+      }
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Fixed missing preventDefault
     const toInput = { name, department, gender, dob: selectedDate };
     sampleFunc(toInput);
     setName("");
     setDepartment("");
     setGender("");
   };
-
-
 
   return (
     <Container component="main" maxWidth="xs">
@@ -90,9 +93,9 @@ export default function AddStudent() {
           <GroupIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Student Directory
+          Student Directory (Admin)
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -148,22 +151,24 @@ export default function AddStudent() {
             </Grid>
           </Grid>
           <Button
-            // type="submit"
+            type="submit"
             fullWidth
             variant="contained"
             color="primary"
-            preventDefault
             className={classes.submit}
-            onClick={handleSubmit}
           >
             Save
           </Button>
 
-          <Grid container justify="center">
+          <Grid container justify="center" spacing={2}>
             <Grid item>
               <Link to="/view">View Student Records</Link>
             </Grid>
+            <Grid item>
+              <Button onClick={logout} color="secondary" size="small">Logout</Button>
+            </Grid>
           </Grid>
+
         </form>
         <Typography style={{ margin: 7 }} variant="body1">
           Status: {message}

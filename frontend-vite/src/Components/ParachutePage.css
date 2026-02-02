@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 100%);
+    /* Sky gradient */
+}
+
+/* Clouds background for realism */
+.sky-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.cloud-1 {
+    width: 100px;
+    height: 40px;
+    top: 20%;
+    left: 10%;
+    animation: floatCloud 20s linear infinite;
+}
+
+.cloud-2 {
+    width: 140px;
+    height: 60px;
+    top: 50%;
+    left: 80%;
+    animation: floatCloud 25s linear infinite reverse;
+}
+
+.cloud-3 {
+    width: 80px;
+    height: 30px;
+    top: 80%;
+    left: 30%;
+    animation: floatCloud 30s linear infinite;
+}
+
+@keyframes floatCloud {
+    from {
+        transform: translateX(-100px);
+    }
+
+    to {
+        transform: translateX(100px);
+    }
+}
+
+
+/* The main container falling down */
+.drop-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: -600px;
+    /* Start above screen */
+    left: 50%;
+    transform: translateX(-50%);
+    animation: dropFromSky 4s ease-out forwards;
+}
+
+@keyframes dropFromSky {
+    0% {
+        top: -600px;
+    }
+
+    60% {
+        top: 30%;
+    }
+
+    /* Fall fast */
+    80% {
+        top: 25%;
+    }
+
+    /* Slight bounce up due to parachute opening */
+    100% {
+        top: 30%;
+    }
+
+    /* Settle */
+}
+
+/* Swing animation to simulate hanging */
+.swing-wrapper {
+    animation: swing 3s ease-in-out infinite alternate;
+    transform-origin: top center;
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(1deg);
+    }
+
+    100% {
+        transform: rotate(-1deg);
+    }
+}
+
+
+/* Parachute Visuals */
+.parachute-group {
+    position: relative;
+    width: 600px;
+    height: 250px;
+}
+
+.parachute {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 50% 100%, #ff6b6b, #ee5253);
+    border-radius: 50% 50% 10% 10%;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.parachute.left {
+    left: 50px;
+    transform: rotate(-15deg);
+}
+
+.parachute.right {
+    right: 50px;
+    transform: rotate(15deg);
+}
+
+.rope {
+    position: absolute;
+    top: 110px;
+    width: 2px;
+    height: 150px;
+    background-color: #555;
+    z-index: 5;
+}
+
+/* Ropes connecting parachutes to the box */
+.rope.l1 {
+    left: 55px;
+    transform: rotate(15deg);
+    height: 180px;
+}
+
+.rope.l2 {
+    left: 160px;
+    transform: rotate(-15deg);
+    height: 180px;
+}
+
+.rope.r1 {
+    right: 55px;
+    transform: rotate(-15deg);
+    height: 180px;
+}
+
+.rope.r2 {
+    right: 160px;
+    transform: rotate(15deg);
+    height: 180px;
+}
+
+
+/* The Landing Card */
+.landing-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 400px;
+    position: relative;
+    z-index: 20;
+    margin-top: -20px;
+    /* Slight overlap with ropes */
+}
+
+.title-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d3436;
+    margin-bottom: 2rem;
+}
+
+.action-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s;
+    color: white;
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-admin {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+}
+
+.btn-user {
+    background: linear-gradient(135deg, #00b894, #55efc4);
+}

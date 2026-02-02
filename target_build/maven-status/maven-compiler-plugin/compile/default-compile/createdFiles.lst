@@ -1,7 +1,7 @@
-com\saravanan\springboot\springboot\controller\StudentController.class
 com\saravanan\springboot\springboot\service\StudentService.class
 com\saravanan\springboot\springboot\dao\StudentDAO.class
 com\saravanan\springboot\springboot\service\StudentServiceImp.class
-com\saravanan\springboot\springboot\dao\StudentDAOImp.class
 com\saravanan\springboot\springboot\SpringbootApplication.class
 com\saravanan\springboot\springboot\modal\Student.class
+com\saravanan\springboot\springboot\controller\StudentController.class
+com\saravanan\springboot\springboot\dao\StudentDAOImp.class
