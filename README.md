@@ -3,17 +3,17 @@
 
 Hey there! This app is an example application for anyone looking for a web app linking the backend capabilities of Spring Boot (with Hibernate) to excellent frontend offered by React. 
 
-![Application Home page](![Screenshot_29-1-2026_145215_localhost](https://github.com/user-attachments/assets/0ff365ae-e294-4167-8f50-d568e1817b0a))
+![Application Home page]
 
 
-![Enter you data in our React app](<img width="1440" height="900" alt="Screenshot (3)" src="https://github.com/user-attachments/assets/45377550-0fbc-488a-853e-9890adfecf6d" />)
+![Enter you data in our React app]
 
 
-![Check status in our React app](<img width="1440" height="900" alt="Screenshot (4)" src="https://github.com/user-attachments/assets/fb4ee4e0-6438-47b3-ad3f-641ef005ad99" />
+![Check status in our React app]
 )
 
 
-![List of all data in our React app](<img width="1440" height="900" alt="Screenshot (5)" src="https://github.com/user-attachments/assets/71007366-98f6-4365-9a7a-ccd1689e1d56" />)
+![List of all data in our React app]
 
 If you would like to follow on the tutorial for the app you can visit the article on medium: [How to build and deploy React app with Spring Boot and MySQL server).
 
